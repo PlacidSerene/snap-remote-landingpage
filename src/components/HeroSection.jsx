@@ -37,7 +37,13 @@ const HeroSection = () => {
           </div>
         </div>
         <div className="md:w-1/2">
-          <img src={imageHeroDesktop} alt="" />
+          <img
+            src={imageHeroDesktop}
+            alt=""
+            className="object-cover"
+            width="100%"
+            height="100%"
+          />
         </div>
       </div>
     </section>
