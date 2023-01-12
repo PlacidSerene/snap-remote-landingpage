@@ -6,16 +6,17 @@ import NavbarDropDownItem from "./NavbarDropDownItem";
 import remindersIcon from "../assets/images/icon-reminders.svg";
 import planningIcon from "../assets/images/icon-planning.svg";
 import todoIcon from "../assets/images/icon-todo.svg";
+import iconMenu from "../assets/images/icon-menu.svg";
 const Navbar = () => {
   const [showFeatures, setShowFeatures] = React.useState(false);
   const [showCompanyOptions, setShowCompanyOptions] = React.useState(false);
   return (
-    <nav className="container mx-auto relative py-7 px-5 md:px-12 font-epilogue">
+    <nav className="container relative mx-auto py-7 px-5 font-epilogue md:px-12">
       <div class="flex justify-between">
-        <div class="flex space-x-12 items-center">
+        <div class="flex items-center lg:space-x-12 md:space-x-6">
           {/* Logo */}
           <img src={logo} alt="logo" className="w-25 md:w-20" />
-          <div class="hidden md:flex space-x-8 lg:space-x-12">
+          <div class="hidden space-x-8 md:flex md:space-x-3 lg:space-x-12">
             <div
               className="relative flex items-center space-x-1 hover:cursor-pointer"
               onClick={(e) => {
@@ -29,13 +30,13 @@ const Navbar = () => {
               <img
                 src={iconArrowDownIcon}
                 alt=""
-                className="w-2.5 h-1.5 hover:pinter"
+                className="hover:pinter h-1.5 w-2.5"
               />
               {/* Dropdown Menu */}
               <div
                 className={`${
                   showFeatures ? "md:flex" : "hidden"
-                } z-50 flex-col w-44 rounded-xl space-y-5 absolute right-0 shadow-2xl py-2 px-5 border top-[calc(100%+1.2rem)] bg-white`}
+                } absolute right-0 top-[calc(100%+1.2rem)] z-50 w-44 flex-col space-y-5 rounded-xl border bg-white py-2 px-5 shadow-2xl`}
               >
                 <NavbarDropDownItem img={todoIcon} title="Todo List" />
                 <NavbarDropDownItem img={calendarIcon} title="Calendar" />
@@ -44,7 +45,7 @@ const Navbar = () => {
               </div>
             </div>
             <div
-              className="flex relative items-center space-x-1 hover:cursor-pointer"
+              className="relative flex items-center space-x-1 hover:cursor-pointer"
               onClick={(e) => {
                 e.stopPropagation;
                 setShowCompanyOptions(!showCompanyOptions);
@@ -56,12 +57,12 @@ const Navbar = () => {
               <img
                 src={iconArrowDownIcon}
                 alt=""
-                className="w-2.5 h-1.5 hover:pinter"
+                className="hover:pinter h-1.5 w-2.5"
               />
               <div
                 className={`${
                   showCompanyOptions ? "md:flex" : "hidden"
-                }  flex-col w-36 rounded-xl space-y-5 absolute left-0 shadow-2xl drop-shadow-2xl py-2 px-5 border top-[calc(100%+1.2rem)]`}
+                }  absolute left-0 top-[calc(100%+1.2rem)] w-36 flex-col space-y-5 rounded-xl border py-2 px-5 shadow-2xl drop-shadow-2xl`}
               >
                 <p>History</p>
                 <p>Our Team</p>
@@ -69,34 +70,35 @@ const Navbar = () => {
               </div>
             </div>
 
-            <a href="#" className=" hover:text-gray-400 my-auto">
+            <a href="#" className=" my-auto hover:text-gray-400">
               Careers
             </a>
 
-            <a href="#" className=" hover:text-gray-400 my-auto">
+            <a href="#" className=" my-auto hover:text-gray-400">
               About
             </a>
           </div>
         </div>
 
-        <div class="hidden md:flex space-x-10 items-center">
+        <div class="hidden items-center space-x-10 md:flex">
           <a href="#" className="hover:text-gray-400">
             Login
           </a>
           <a
             href="#"
-            class="relative px-5 py-3 overflow-hidden font-medium text-gray-600 border border-gray-200 rounded-lg shadow-inner group"
+            class="group relative overflow-hidden rounded-lg border border-gray-200 px-5 py-3 font-medium text-gray-600 shadow-inner"
           >
-            <span class="absolute top-0 left-0 w-0 h-0 transition-all duration-200 border-t-2 border-gray-600 group-hover:w-full ease"></span>
-            <span class="absolute bottom-0 right-0 w-0 h-0 transition-all duration-200 border-b-2 border-gray-600 group-hover:w-full ease"></span>
-            <span class="absolute top-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-            <span class="absolute bottom-0 left-0 w-full h-0 transition-all duration-300 delay-200 bg-gray-600 group-hover:h-full ease"></span>
-            <span class="absolute inset-0 w-full h-full duration-300 delay-300 bg-gray-900 opacity-0 group-hover:opacity-100"></span>
-            <span class="relative transition-colors duration-300 delay-200 group-hover:text-white ease">
+            <span class="ease absolute top-0 left-0 h-0 w-0 border-t-2 border-gray-600 transition-all duration-200 group-hover:w-full"></span>
+            <span class="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-gray-600 transition-all duration-200 group-hover:w-full"></span>
+            <span class="ease absolute top-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"></span>
+            <span class="ease absolute bottom-0 left-0 h-0 w-full bg-gray-600 transition-all delay-200 duration-300 group-hover:h-full"></span>
+            <span class="absolute inset-0 h-full w-full bg-gray-900 opacity-0 delay-300 duration-300 group-hover:opacity-100"></span>
+            <span class="ease relative transition-colors delay-200 duration-300 group-hover:text-white">
               Register
             </span>
           </a>
         </div>
+        <img src={iconMenu} alt="" className="md:hidden" />
       </div>
     </nav>
   );
